@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.11"
 selenium = "^4.9.0"
 selenium-toolkit = "^0.0.6"
+2captcha-python = "^1.2.0"
 
 
 [build-system]
