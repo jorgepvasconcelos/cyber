@@ -1,5 +1,6 @@
 version: '3'
 services:
+
   selenium_service:
     image: selenium/standalone-chrome
     container_name: container_selenium
@@ -8,3 +9,10 @@ services:
     shm_size: 2gb
     ports:
       - 4444:4444
+
+
+  service_redis:
+    image: redis
+    container_name: container_redis
+    ports:
+      - "6379:6379"

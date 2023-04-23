@@ -10,6 +10,8 @@ python = "^3.11"
 selenium = "^4.9.0"
 selenium-toolkit = "^0.0.6"
 2captcha-python = "^1.2.0"
+celery = "^5.2.7"
+redis = "^4.5.4"
 
 
 [build-system]
