@@ -1,13 +1,13 @@
 from celery import Celery
 
-import celeryconfig
+from task_app import celeryconfig
 from settings import REDIS_URL, CELERY_APP_NAME
 
 app = Celery(
     main=CELERY_APP_NAME,
     backend=REDIS_URL,
     broker=REDIS_URL,
-    include=['tasks'],
+    include=['task_app.tasks'],
     config_source=celeryconfig
 )
 

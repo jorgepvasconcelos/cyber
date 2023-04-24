@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium_toolkit import SeleniumToolKit
 
-from captcha import get_recaptcha_token
+from task_app.captcha import get_recaptcha_token
 
 options = webdriver.ChromeOptions()
 options.add_argument('--ignore-ssl-errors=yes')

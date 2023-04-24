@@ -1,7 +1,10 @@
 CELERY_BIN_PATH = celery
-APP_PATH = celery_app
+APP_PATH = task_app.celery_app
 CELERY_ARGS = -A $(APP_PATH) worker --loglevel=INFO
 FLOWER_ARGS = -A $(APP_PATH) flower --loglevel=INFO
+
+run_api:
+	export PYTHONPATH="${PYTHONPATH}:$PWD" && poetry run python ./api/main.py
 
 run_celery:
 	$(CELERY_BIN_PATH) $(CELERY_ARGS)

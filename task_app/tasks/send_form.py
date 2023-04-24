@@ -1,5 +1,4 @@
-from celery_app import app
-from celery import Task
+from task_app.celery_app import app
 
 
 @app.task(name='send_form_cyber')
