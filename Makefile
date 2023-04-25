@@ -15,4 +15,5 @@ run_flower:
 container:
 	docker-compose up
 
-#run: container run_celery
+requirements: ## Update requirements.txt
+	poetry export --without  dev --output requirements.txt --without-hashes
