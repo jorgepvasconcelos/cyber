@@ -4,6 +4,7 @@
 - docker
 
 ## How to run
+create an env.env file based on env.env-exemple passing your values
 ```
 make run
 ```
