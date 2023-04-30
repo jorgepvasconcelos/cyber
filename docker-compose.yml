@@ -3,6 +3,7 @@ services:
 
   fastapi_service:
     build: .
+    container_name: fastapi_container
     env_file: "./env.env"
     command: python ./api/main.py
     ports:
@@ -12,32 +13,33 @@ services:
 
   celery_service:
     build: .
+    container_name: celery_container
     env_file: "./env.env"
     command: celery -A task_app.celery_app worker --loglevel=info
     depends_on:
       - fastapi_service
       - redis_service
 
-#  flower_service:
-#    build: .
-#    env_file: "./env.env"
-#    command: celery -A task_app.celery_app flower --port=5555
-#    ports:
-#      - "5555:5555"
-#    depends_on:
-#      - service_fastapi
-#      - service_redis
-#      - service_celery
+  flower_service:
+    build: .
+    env_file: "./env.env"
+    command: celery -A task_app.celery_app flower --port=5555
+    ports:
+      - "5555:5555"
+    depends_on:
+      - service_fastapi
+      - service_redis
+      - service_celery
 
   redis_service:
     image: redis
-    container_name: container_redis
+    container_name: redis_container
     ports:
       - "6379:6379"
 
   selenium_service:
     image: selenium/standalone-chrome
-    container_name: container_selenium
+    container_name: selenium_container
     environment:
       VNC_NO_PASSWORD: 1
     shm_size: 2gb

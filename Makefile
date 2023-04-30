@@ -12,7 +12,7 @@ run_celery:
 run_flower:
 	$(CELERY_BIN_PATH) $(FLOWER_ARGS)
 
-container:
+run:
 	docker-compose up
 
 requirements: ## Update requirements.txt
