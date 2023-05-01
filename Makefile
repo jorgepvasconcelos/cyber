@@ -13,7 +13,7 @@ run_flower:
 	$(CELERY_BIN_PATH) $(FLOWER_ARGS)
 
 run:
-	docker-compose up
+	docker compose up
 
 requirements: ## Update requirements.txt
 	poetry export --without  dev --output requirements.txt --without-hashes
